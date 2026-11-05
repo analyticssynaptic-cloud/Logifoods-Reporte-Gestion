@@ -287,18 +287,19 @@ function getFilters() {
   const fromVal = document.getElementById('f-from').value;
   const toVal   = document.getElementById('f-to').value;
   return {
-    from: new Date(fromVal + 'T00:00:00'),
-    to:   new Date(toVal   + 'T23:59:59'),
+    from: fromVal ? new Date(fromVal + 'T00:00:00') : new Date(0),
+    to:   toVal   ? new Date(toVal   + 'T23:59:59') : new Date('9999-12-31T23:59:59'),
     per:  document.getElementById('f-person').value,
     grp:  document.getElementById('f-group').value,
   };
 }
 
 function inRange(row, f) {
-  // La columna fecha está normalizada a minúsculas: row.fecha
   const d = parseDate(row.fecha);
   if (!d || isNaN(d.getTime())) return false;
-  return d >= f.from && d <= f.to;
+  const fromOk = isNaN(f.from.getTime()) || d >= f.from;
+  const toOk   = isNaN(f.to.getTime())   || d <= f.to;
+  return fromOk && toOk;
 }
 
 function populateFilters() {
@@ -539,6 +540,8 @@ function showToast(msg, dur=2500) {
 }
 
 document.getElementById('f-to').value = new Date().toISOString().slice(0,10);
+document.getElementById('f-from').addEventListener('change', applyFilters);
+document.getElementById('f-to').addEventListener('change', applyFilters);
 loadAll();
 setInterval(loadAll, 5*60*1000);
 </script>
