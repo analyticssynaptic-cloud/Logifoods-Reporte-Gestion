@@ -72,6 +72,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 .stat-lbl{font-size:.6rem;color:var(--txt2);margin-top:2px;text-transform:uppercase;letter-spacing:.4px}
 .pcard-footer{padding:10px 16px;border-top:1px solid #1e3a5f;display:flex;align-items:center;justify-content:space-between}
 .last-act{font-size:.68rem;color:var(--txt2)}.last-act strong{color:var(--txt)}
+.expand-hint{font-size:.65rem;color:var(--acc);font-weight:600;letter-spacing:.3px;opacity:.8}
 .pcard-detail{display:none;padding:0 16px 14px;border-top:1px solid #1a2a40}
 .pcard-detail.open{display:block}
 .detail-section{margin-top:12px}
@@ -266,7 +267,6 @@ async function loadAll() {
     lastSync = new Date();
     document.getElementById('sync-txt').textContent = 'En vivo · ' + lastSync.toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'});
     document.getElementById('pulse').style.background = '#00e676';
-    populateFilters();
     applyFilters();
     showToast('✓ Datos actualizados');
   } catch(e) {
@@ -302,7 +302,7 @@ function inRange(row, f) {
   return fromOk && toOk;
 }
 
-function populateFilters() {
+function populateFilters(dateFrom, dateTo) {
   const pSel = document.getElementById('f-person');
   const gSel = document.getElementById('f-group');
   const curP = pSel.value, curG = gSel.value;
@@ -310,6 +310,12 @@ function populateFilters() {
 
   for (const sheet of [raw.ingreso, raw.ventas, raw.encuesta]) {
     for (const row of sheet) {
+      if (dateFrom || dateTo) {
+        const d = parseDate(row.fecha);
+        if (!d || isNaN(d.getTime())) continue;
+        if (dateFrom && !isNaN(dateFrom.getTime()) && d < dateFrom) continue;
+        if (dateTo   && !isNaN(dateTo.getTime())   && d > dateTo)   continue;
+      }
       if (row.cedula && row.nombre) people.set(String(row.cedula), row.nombre);
       if (row.grupo) groups.add(row.grupo);
     }
@@ -438,6 +444,7 @@ function avg(arr) { return arr.length ? arr.reduce((s,v)=>s+v,0)/arr.length : nu
 // ── Render
 function applyFilters() {
   const f = getFilters();
+  populateFilters(f.from, f.to);
   const list = buildPersons(f);
   render(list);
 }
@@ -501,8 +508,8 @@ function personCard(p) {
   }</div></div>` : '';
 
   const id = 'card_'+p.cedula;
-  return `<div class="pcard" id="${id}">
-    <div class="pcard-header" onclick="toggle('${id}')">
+  return `<div class="pcard" id="${id}" onclick="toggle('${id}')">
+    <div class="pcard-header">
       ${photoEl}
       <div class="avatar-placeholder" style="${phStyle}">${initials}</div>
       <div class="pinfo">
@@ -522,15 +529,21 @@ function personCard(p) {
     </div>
     <div class="pcard-footer">
       <div class="last-act">Último: <strong>${fmtDateTime(p.lastDate)}</strong></div>
-      <span class="pdv-pill" style="max-width:150px;overflow:hidden;text-overflow:ellipsis">${esc(pdvArr[0]||'—')}</span>
+      <span class="expand-hint" id="hint_${p.cedula}">▼ ver detalle</span>
     </div>
-    <div class="pcard-detail" id="det_${p.cedula}">${detProds}${detScores}${detPdvs}</div>
+    <div class="pcard-detail" id="det_${p.cedula}" onclick="event.stopPropagation()">${detProds}${detScores}${detPdvs}</div>
   </div>`;
 }
 
 function toggle(id) {
-  const det = document.querySelector('#'+id+' .pcard-detail');
-  if (det) det.classList.toggle('open');
+  const card = document.getElementById(id);
+  if (!card) return;
+  const det  = card.querySelector('.pcard-detail');
+  const hint = card.querySelector('.expand-hint');
+  if (det) {
+    det.classList.toggle('open');
+    if (hint) hint.textContent = det.classList.contains('open') ? '▲ cerrar' : '▼ ver detalle';
+  }
 }
 function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function showToast(msg, dur=2500) {
@@ -542,6 +555,8 @@ function showToast(msg, dur=2500) {
 document.getElementById('f-to').value = new Date().toISOString().slice(0,10);
 document.getElementById('f-from').addEventListener('change', applyFilters);
 document.getElementById('f-to').addEventListener('change', applyFilters);
+document.getElementById('f-person').addEventListener('change', applyFilters);
+document.getElementById('f-group').addEventListener('change', applyFilters);
 loadAll();
 setInterval(loadAll, 5*60*1000);
 </script>
