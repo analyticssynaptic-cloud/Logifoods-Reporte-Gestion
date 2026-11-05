@@ -209,7 +209,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 <script>
 const SHEET_ID = '1Tzpktl5Ix2yzCeziVpVyqnLLQYNICFAFNTJgH1vgYmE';
 
-let raw = { ingreso:[], salida:[], ventas:[], inventario:[], encuesta:[] };
+let raw = { ingreso:[], salida:[], ventas:[], encuesta:[] };
 let persons = {};
 let lastSync = null;
 
@@ -274,18 +274,16 @@ async function loadAll() {
   document.getElementById('sync-txt').textContent = 'Sincronizando…';
   document.getElementById('pulse').style.background = '#ffca28';
   try {
-    const [ing, sal, ven, inv, enc] = await Promise.all([
+    const [ing, sal, ven, enc] = await Promise.all([
       fetchSheet('Ingreso'),
       fetchSheet('Salida'),
       fetchSheet('Ventas'),
-      fetchSheet('Inventario'),
       fetchSheet('Encuesta'),
     ]);
-    raw.ingreso    = ing;
-    raw.salida     = sal;
-    raw.ventas     = ven;
-    raw.inventario = inv;
-    raw.encuesta   = enc;
+    raw.ingreso  = ing;
+    raw.salida   = sal;
+    raw.ventas   = ven;
+    raw.encuesta = enc;
     document.getElementById('share-notice').style.display = 'none';
     lastSync = new Date();
     document.getElementById('sync-txt').textContent = 'En vivo · ' + lastSync.toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'});
@@ -338,11 +336,6 @@ function populateFilters() {
     if (row.cedula && row.nombre) people.set(String(row.cedula), row.nombre);
     if (row.grupo) groups.add(row.grupo);
   }
-  for (const row of raw.inventario) {
-    if (row.cedula && row.nombre) people.set(String(row.cedula), row.nombre);
-    if (row.grupo) groups.add(row.grupo);
-  }
-
   pSel.innerHTML = '<option value="">Todas</option>';
   [...people.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([k,v])=>{
     const o = document.createElement('option');
@@ -369,7 +362,7 @@ function buildPersons(f) {
     if (!P[k]) P[k] = {
       cedula:k, nombre:'', telefono:'', ciudad:'', grupo:'', foto:'',
       dias:new Set(), pdvs:new Set(), ingCount:0, salCount:0,
-      ventas:{}, ventaTotal:0, invCount:0, encCount:0,
+      ventas:{}, ventaTotal:0, encCount:0,
       satisf:[], calidad:[], ambiente:[], precio:[],
       lastDate:null, encPdvs:new Set()
     };
@@ -438,33 +431,6 @@ function buildPersons(f) {
       p.ventas[PROD_SHORT[i]] = (p.ventas[PROD_SHORT[i]]||0) + v;
       p.ventaTotal += v;
     });
-  }
-
-  const PROD_COLS_I = [
-    'HAMBURGUESA 4 PACK DE ATÚN - 24 UND (400g)',
-    'FILETE DE ATUN ENCOSTRADO CON AJONJOLI x 304g',
-    'SASHIMI X 150G',
-    'FAJITAS DE ATUN DOLORES 12/350 G',
-    'CARNITAS DE ATUN DOLORES 12/350 G',
-    'PALOMITAS DE ATUN CON PIMIENTO Y LIMON x 270 g',
-    'LANGOSTINOS A LAS FINAS HIERBAS X 454 GR',
-    'CUBITOS DE ATUN DOLORES x 200 g',
-    'HAMBURGUESA DE ATUN 10 x 1000 g',
-  ];
-
-  for (const row of raw.inventario) {
-    if (!inRange(row, f)) continue;
-    if (f.grp && row.grupo !== f.grp) continue;
-    if (f.per && String(row.cedula) !== f.per) continue;
-    const p = get(row.cedula);
-    p.nombre   = p.nombre   || row.nombre   || '';
-    p.telefono = p.telefono || row.telefono || '';
-    p.ciudad   = p.ciudad   || row.ciudad   || '';
-    p.grupo    = p.grupo    || row.grupo    || '';
-    if (row.pdv) p.pdvs.add(row.pdv);
-    p.invCount++;
-    const d = parseDate(row.Fecha);
-    if (d && (!p.lastDate || d > p.lastDate)) p.lastDate = d;
   }
 
   for (const row of raw.encuesta) {
@@ -634,10 +600,6 @@ function personCard(p) {
       <div class="stat">
         <div class="stat-val pur">${p.pdvs.size}</div>
         <div class="stat-lbl">PDVs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">${p.invCount}</div>
-        <div class="stat-lbl">Inv.</div>
       </div>
       <div class="stat">
         <div class="stat-val grn">${satisfA ? satisfA.toFixed(1) : '—'}</div>
