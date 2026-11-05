@@ -16,8 +16,6 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-height:100vh;padding-bottom:40px}
-
-/* HEADER */
 .header{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 60%,#0d1b2a 100%);border-bottom:1px solid #1e3a5f;padding:16px 20px;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
 .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .logo-wrap{display:flex;align-items:center;gap:10px}
@@ -29,8 +27,6 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 .sync-badge:hover{background:rgba(0,212,255,.15)}
 .pulse{width:7px;height:7px;background:var(--grn);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-
-/* FILTERS */
 .filters{max-width:1200px;margin:16px auto 0;padding:0 20px}
 .filter-bar{background:var(--bg2);border:1px solid #1e3a5f;border-radius:var(--rad);padding:14px 16px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
 .filter-group{display:flex;flex-direction:column;gap:4px;flex:1;min-width:140px}
@@ -40,38 +36,24 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 .filter-group select option{background:#111827}
 .btn-filter{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#000;font-weight:700;font-size:.82rem;border:none;border-radius:var(--rad2);padding:8px 20px;cursor:pointer;transition:.2s;white-space:nowrap}
 .btn-filter:hover{opacity:.85;transform:translateY(-1px)}
-
-/* SUMMARY CARDS */
 .summary{max-width:1200px;margin:16px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
 .sum-card{background:var(--bg2);border:1px solid #1e3a5f;border-radius:var(--rad);padding:14px 16px;position:relative;overflow:hidden}
 .sum-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.sum-card.c0::before{background:var(--acc)}
-.sum-card.c1::before{background:var(--grn)}
-.sum-card.c2::before{background:var(--yel)}
-.sum-card.c3::before{background:var(--pur)}
+.sum-card.c0::before{background:var(--acc)}.sum-card.c1::before{background:var(--grn)}
+.sum-card.c2::before{background:var(--yel)}.sum-card.c3::before{background:var(--pur)}
 .sum-card.c4::before{background:var(--red)}
 .sum-label{font-size:.68rem;color:var(--txt2);text-transform:uppercase;letter-spacing:.6px;font-weight:600}
 .sum-val{font-size:1.8rem;font-weight:800;margin-top:4px;line-height:1}
-.sum-val.c0{color:var(--acc)}
-.sum-val.c1{color:var(--grn)}
-.sum-val.c2{color:var(--yel)}
-.sum-val.c3{color:var(--pur)}
-.sum-val.c4{color:var(--red)}
+.sum-val.c0{color:var(--acc)}.sum-val.c1{color:var(--grn)}.sum-val.c2{color:var(--yel)}.sum-val.c3{color:var(--pur)}.sum-val.c4{color:var(--red)}
 .sum-sub{font-size:.7rem;color:var(--txt2);margin-top:3px}
-
-/* SECTION TITLE */
 .section-title{max-width:1200px;margin:20px auto 0;padding:0 20px;display:flex;align-items:center;gap:10px;justify-content:space-between}
 .section-title h2{font-size:.95rem;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
 .section-title h2 span{color:var(--txt2);font-weight:400;font-size:.82rem}
 .view-toggle{display:flex;gap:4px}
 .view-btn{background:var(--bg3);border:1px solid #2a3f5f;border-radius:7px;padding:5px 10px;color:var(--txt2);font-size:.72rem;cursor:pointer;transition:.2s}
 .view-btn.active{background:var(--acc);color:#000;border-color:var(--acc);font-weight:600}
-
-/* PERSON GRID */
 .grid{max-width:1200px;margin:14px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
 .grid.list-view{grid-template-columns:1fr}
-
-/* PERSON CARD */
 .pcard{background:var(--bg2);border:1px solid #1e3a5f;border-radius:var(--rad);overflow:hidden;transition:.2s;cursor:pointer}
 .pcard:hover{border-color:#2a5080;transform:translateY(-2px);box-shadow:var(--sh)}
 .pcard-header{display:flex;align-items:center;gap:14px;padding:16px;background:linear-gradient(135deg,var(--bg3),var(--bg4))}
@@ -82,23 +64,14 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 .pbadge{display:inline-flex;align-items:center;gap:4px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2);border-radius:20px;padding:2px 8px;font-size:.65rem;color:var(--acc);font-weight:600;margin-top:4px}
 .pmeta{font-size:.7rem;color:var(--txt2);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-left:auto}
-.status-dot.active{background:var(--grn);box-shadow:0 0 6px var(--grn)}
-.status-dot.inactive{background:var(--txt3)}
-
+.status-dot.active{background:var(--grn);box-shadow:0 0 6px var(--grn)}.status-dot.inactive{background:var(--txt3)}
 .pcard-body{padding:14px 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .stat{text-align:center;padding:8px 4px;background:var(--bg3);border-radius:var(--rad2);border:1px solid #1e3a5f}
 .stat-val{font-size:1.1rem;font-weight:800;color:var(--acc)}
-.stat-val.grn{color:var(--grn)}
-.stat-val.yel{color:var(--yel)}
-.stat-val.pur{color:var(--pur)}
+.stat-val.grn{color:var(--grn)}.stat-val.yel{color:var(--yel)}.stat-val.pur{color:var(--pur)}
 .stat-lbl{font-size:.6rem;color:var(--txt2);margin-top:2px;text-transform:uppercase;letter-spacing:.4px}
-
 .pcard-footer{padding:10px 16px;border-top:1px solid #1e3a5f;display:flex;align-items:center;justify-content:space-between}
-.last-act{font-size:.68rem;color:var(--txt2)}
-.last-act strong{color:var(--txt)}
-.pdv-tag{font-size:.65rem;background:rgba(206,147,216,.1);border:1px solid rgba(206,147,216,.2);color:var(--pur);border-radius:20px;padding:2px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
-
-/* EXPANDABLE DETAIL */
+.last-act{font-size:.68rem;color:var(--txt2)}.last-act strong{color:var(--txt)}
 .pcard-detail{display:none;padding:0 16px 14px;border-top:1px solid #1a2a40}
 .pcard-detail.open{display:block}
 .detail-section{margin-top:12px}
@@ -110,42 +83,29 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 .prod-row span:last-child{font-weight:700;color:var(--grn);min-width:30px;text-align:right}
 .score-row{display:flex;gap:8px;flex-wrap:wrap}
 .score-chip{background:var(--bg3);border-radius:7px;padding:5px 10px;font-size:.72rem;text-align:center;flex:1;min-width:70px}
-.score-chip .sv{font-size:.95rem;font-weight:700;color:var(--yel)}
-.score-chip .sl{color:var(--txt2);font-size:.62rem;text-transform:uppercase;letter-spacing:.4px}
+.score-chip .sv{font-size:.95rem;font-weight:700;color:var(--yel)}.score-chip .sl{color:var(--txt2);font-size:.62rem;text-transform:uppercase;letter-spacing:.4px}
 .pdv-pills{display:flex;flex-wrap:wrap;gap:5px}
 .pdv-pill{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.15);border-radius:20px;padding:3px 9px;font-size:.67rem;color:var(--acc)}
-
-/* LOADING / ERROR */
 .state-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;padding:40px 20px;text-align:center}
 .spinner{width:48px;height:48px;border:3px solid #1e3a5f;border-top-color:var(--acc);border-radius:50%;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .state-screen p{color:var(--txt2);font-size:.9rem;max-width:360px;line-height:1.6}
 .state-screen .err-icon{font-size:2.5rem}
-
-/* EMPTY */
 .empty{max-width:1200px;margin:40px auto;padding:0 20px;text-align:center;color:var(--txt2)}
 .empty p{font-size:.9rem;margin-top:8px}
-
-/* TOAST */
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e3a5f;border:1px solid var(--acc);border-radius:10px;padding:10px 20px;font-size:.8rem;color:var(--txt);z-index:999;opacity:0;transition:.3s;pointer-events:none}
 .toast.show{opacity:1}
-
-/* SHARE NOTICE */
 .share-notice{max-width:1200px;margin:16px auto 0;padding:0 20px}
 .notice-box{background:rgba(255,202,40,.07);border:1px solid rgba(255,202,40,.25);border-radius:var(--rad);padding:12px 16px;display:flex;gap:10px;align-items:flex-start}
 .notice-box .ni{font-size:1rem;flex-shrink:0;margin-top:1px}
 .notice-box p{font-size:.78rem;color:var(--yel);line-height:1.5}
 .notice-box p strong{font-weight:700}
-.notice-box a{color:var(--acc);text-decoration:underline}
-
-/* RESPONSIVE */
 @media(max-width:600px){
   .header h1{font-size:.95rem}
   .summary{grid-template-columns:repeat(2,1fr)}
   .grid{grid-template-columns:1fr}
   .filter-bar{gap:10px}
   .filter-group{min-width:100px}
-  .pcard-body{grid-template-columns:repeat(3,1fr)}
   .sum-val{font-size:1.5rem}
 }
 </style>
@@ -171,7 +131,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 <div id="share-notice" class="share-notice" style="display:none">
   <div class="notice-box">
     <span class="ni">⚠️</span>
-    <p><strong>Acceso requerido:</strong> Para que el dashboard funcione, el archivo <strong>Data Logifoods</strong> debe estar compartido como "Cualquier persona con el enlace puede ver". Ve a <strong>Google Sheets → Compartir → Cambiar a: Cualquier persona con el enlace</strong>, luego recarga esta página.</p>
+    <p><strong>Acceso requerido:</strong> El archivo <strong>Data Logifoods</strong> debe estar compartido como "Cualquier persona con el enlace puede ver" en Google Sheets → Compartir → Acceso general.</p>
   </div>
 </div>
 
@@ -183,7 +143,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
     </div>
     <div class="filter-group">
       <label>Hasta</label>
-      <input type="date" id="f-to" value="2026-11-05">
+      <input type="date" id="f-to">
     </div>
     <div class="filter-group">
       <label>Persona</label>
@@ -208,68 +168,86 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-he
 
 <script>
 const SHEET_ID = '1Tzpktl5Ix2yzCeziVpVyqnLLQYNICFAFNTJgH1vgYmE';
-
 let raw = { ingreso:[], salida:[], ventas:[], encuesta:[] };
-let persons = {};
 let lastSync = null;
 
-// ── Date parsing ───────────────────────────────────────────────────────────
-function parseDate(str) {
-  if (!str) return null;
-  str = str.trim().replace(/ /g,' ').replace(/\s+/g,' ');
-  // "30/01/2026 8:42:22 a. m." or "30/01/2026 2:36:22 p. m."
-  const m = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})\s+(\d{1,2}):(\d{2}):(\d{2})\s*(a\.\s*m\.|p\.\s*m\.)?/i);
-  if (!m) return null;
-  let [,d,mo,y,h,mi,s,ap] = m;
-  h = parseInt(h); mi = parseInt(mi); s = parseInt(s);
-  if (ap) {
-    const ispm = ap.replace(/\s|\./g,'').toLowerCase() === 'pm';
-    if (ispm && h < 12) h += 12;
-    if (!ispm && h === 12) h = 0;
-  }
-  return new Date(+y, +mo-1, +d, h, mi, s);
+// ── gviz parser — normaliza nombres a minúsculas, parsea Date() correctamente
+function gvizToRows(table) {
+  if (!table) return [];
+  // col.label tiene el encabezado; normalizamos a minúsculas para acceso uniforme
+  const cols = (table.cols || []).map(c => (c.label || c.id || '').trim().toLowerCase());
+  return (table.rows || []).map(row => {
+    const obj = {};
+    (row.c || []).forEach((cell, i) => {
+      const key = cols[i];
+      if (!key) return;
+      if (!cell || cell.v == null) { obj[key] = null; return; }
+      // gviz envía fechas como "Date(2026,9,23,17,0,0)" — mes 0-indexado
+      if (typeof cell.v === 'string' && cell.v.startsWith('Date(')) {
+        const m = cell.v.match(/Date\((\d+),(\d+),(\d+)(?:,(\d+),(\d+),(\d+))?\)/);
+        if (m) {
+          obj[key] = new Date(+m[1], +m[2], +m[3], +(m[4]||0), +(m[5]||0), +(m[6]||0));
+        } else {
+          obj[key] = cell.f || cell.v;
+        }
+      } else if (cell.v instanceof Date) {
+        obj[key] = cell.v;
+      } else {
+        // Usar valor formateado (f) si existe, si no el raw (v)
+        obj[key] = cell.f != null ? cell.f : cell.v;
+      }
+    });
+    return obj;
+  });
 }
 
-function fmtDate(d) {
-  if (!d) return '—';
-  return d.toLocaleDateString('es-CO',{day:'2-digit',month:'short',year:'numeric'});
+// ── Parseo de fecha — acepta Date object O string "DD/MM/YYYY HH:MM:SS a./p. m."
+function parseDate(val) {
+  if (!val) return null;
+  if (val instanceof Date) return isNaN(val.getTime()) ? null : val;
+  if (typeof val === 'number') return new Date(val);
+  const s = String(val).trim();
+  // "30/01/2026 8:42:22 a. m." — con espacios y puntos variados en am/pm
+  const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2}):(\d{2})\s*(a[\s.]*m[\s.]*|p[\s.]*m[\s.]*)?)?/i);
+  if (m) {
+    let h = +(m[4]||0), mi = +(m[5]||0), sc = +(m[6]||0);
+    const ap = m[7];
+    if (ap) {
+      const ispm = ap.replace(/[\s.]/g,'').toLowerCase() === 'pm';
+      if (ispm && h < 12) h += 12;
+      if (!ispm && h === 12) h = 0;
+    }
+    return new Date(+m[3], +m[2]-1, +m[1], h, mi, sc);
+  }
+  const d = new Date(s);
+  return isNaN(d.getTime()) ? null : d;
 }
+
 function fmtDateTime(d) {
   if (!d) return '—';
   return d.toLocaleString('es-CO',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
 }
-
 function dateStr(d) {
   if (!d) return '';
-  const mo = String(d.getMonth()+1).padStart(2,'0');
-  const da = String(d.getDate()).padStart(2,'0');
-  return `${d.getFullYear()}-${mo}-${da}`;
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
-// ── Fetch Google Sheets via gviz ───────────────────────────────────────────
+// ── Fetch hoja via gviz (requiere sheet público)
 async function fetchSheet(name) {
   const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(name)}&headers=1`;
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} al leer hoja "${name}"`);
+  if (!res.ok) throw new Error(`HTTP ${res.status} en hoja "${name}"`);
   const txt = await res.text();
-  const json = JSON.parse(txt.replace(/^[^(]*\(/, '').replace(/\);?\s*$/, ''));
-  if (json.status === 'error') throw new Error(json.errors?.[0]?.detailed_message || 'Error en la hoja');
+  // Remover wrapper de callback: /*O_o*/ google.visualization.Query.setResponse({...});
+  const json = JSON.parse(txt.replace(/^[\s\S]*?setResponse\(/, '').replace(/\);\s*$/, ''));
+  if (json.status === 'error') {
+    const msg = (json.errors||[]).map(e=>e.detailed_message||e.message).join('; ');
+    throw new Error(msg || `Error en hoja "${name}"`);
+  }
   return gvizToRows(json.table);
 }
 
-function gvizToRows(table) {
-  const cols = (table.cols || []).map(c => (c.label || c.id || '').trim());
-  const rows = (table.rows || []).map(row => {
-    const obj = {};
-    (row.c || []).forEach((cell, i) => {
-      obj[cols[i]] = cell ? (cell.f ?? cell.v ?? null) : null;
-    });
-    return obj;
-  });
-  return rows;
-}
-
-// ── Load all sheets ────────────────────────────────────────────────────────
+// ── Cargar todas las hojas
 async function loadAll() {
   document.getElementById('sync-txt').textContent = 'Sincronizando…';
   document.getElementById('pulse').style.background = '#ffca28';
@@ -294,100 +272,109 @@ async function loadAll() {
   } catch(e) {
     document.getElementById('sync-txt').textContent = 'Error · Reintentar';
     document.getElementById('pulse').style.background = '#ff5252';
-    if (e.message.includes('403') || e.message.includes('401') || e.message.includes('404')) {
-      document.getElementById('share-notice').style.display = 'block';
-    }
+    if (/403|401|404/.test(e.message)) document.getElementById('share-notice').style.display = 'block';
     document.getElementById('app').innerHTML = `
       <div class="state-screen">
         <div class="err-icon">⚠️</div>
-        <p><strong>No se pudo cargar el archivo.</strong><br>${e.message}</p>
+        <p><strong>No se pudo cargar.</strong><br>${e.message}</p>
         <button class="btn-filter" onclick="loadAll()">Reintentar</button>
       </div>`;
   }
 }
 
-// ── Filter helpers ─────────────────────────────────────────────────────────
+// ── Filtros
 function getFilters() {
-  const from = new Date(document.getElementById('f-from').value + 'T00:00:00');
-  const to   = new Date(document.getElementById('f-to').value   + 'T23:59:59');
-  const per  = document.getElementById('f-person').value;
-  const grp  = document.getElementById('f-group').value;
-  return { from, to, per, grp };
+  const fromVal = document.getElementById('f-from').value;
+  const toVal   = document.getElementById('f-to').value;
+  return {
+    from: new Date(fromVal + 'T00:00:00'),
+    to:   new Date(toVal   + 'T23:59:59'),
+    per:  document.getElementById('f-person').value,
+    grp:  document.getElementById('f-group').value,
+  };
 }
 
 function inRange(row, f) {
-  const d = parseDate(row.Fecha);
-  if (!d) return false;
-  if (d < f.from || d > f.to) return false;
-  return true;
+  // La columna fecha está normalizada a minúsculas: row.fecha
+  const d = parseDate(row.fecha);
+  if (!d || isNaN(d.getTime())) return false;
+  return d >= f.from && d <= f.to;
 }
 
 function populateFilters() {
   const pSel = document.getElementById('f-person');
   const gSel = document.getElementById('f-group');
   const curP = pSel.value, curG = gSel.value;
-
   const people = new Map(), groups = new Set();
-  for (const row of raw.ingreso) {
-    if (row.cedula && row.nombre) people.set(String(row.cedula), row.nombre);
-    if (row.grupo) groups.add(row.grupo);
+
+  for (const sheet of [raw.ingreso, raw.ventas, raw.encuesta]) {
+    for (const row of sheet) {
+      if (row.cedula && row.nombre) people.set(String(row.cedula), row.nombre);
+      if (row.grupo) groups.add(row.grupo);
+    }
   }
-  for (const row of raw.ventas) {
-    if (row.cedula && row.nombre) people.set(String(row.cedula), row.nombre);
-    if (row.grupo) groups.add(row.grupo);
-  }
+
   pSel.innerHTML = '<option value="">Todas</option>';
   [...people.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([k,v])=>{
     const o = document.createElement('option');
-    o.value = k; o.textContent = v;
-    if (k === curP) o.selected = true;
+    o.value=k; o.textContent=v; if(k===curP) o.selected=true;
     pSel.appendChild(o);
   });
-
   gSel.innerHTML = '<option value="">Todos</option>';
   [...groups].sort().forEach(g=>{
     const o = document.createElement('option');
-    o.value = g; o.textContent = g;
-    if (g === curG) o.selected = true;
+    o.value=g; o.textContent=g; if(g===curG) o.selected=true;
     gSel.appendChild(o);
   });
 }
 
-// ── Aggregate per person ───────────────────────────────────────────────────
+// ── Columnas de producto en Ventas (todo lo que no sea metadata)
+const META = new Set(['telefono','fecha','nombre','cedula','ciudad','grupo','pdv','latitud','longitud','foto','cierre','seccion','client_id']);
+function getProdCols(rows) {
+  if (!rows.length) return [];
+  return Object.keys(rows[0]).filter(k => k && !META.has(k));
+}
+function shortName(col) {
+  const map = {sashimi:'Sashimi',cubito:'Cubitos',filete:'Filetes',hamburgue:'Hamburgue.',
+    fajita:'Fajitas',carnita:'Carnitas',palomita:'Palomitas',langostino:'Langostinos',atun:'Atún'};
+  const lc = col.toLowerCase();
+  for (const [k,v] of Object.entries(map)) if (lc.includes(k)) return v;
+  return col.length > 14 ? col.slice(0,13)+'…' : col;
+}
+
+// ── Agregar datos por persona
 function buildPersons(f) {
   const P = {};
-
   function get(cedula) {
     const k = String(cedula);
     if (!P[k]) P[k] = {
       cedula:k, nombre:'', telefono:'', ciudad:'', grupo:'', foto:'',
-      dias:new Set(), pdvs:new Set(), ingCount:0, salCount:0,
+      dias:new Set(), pdvs:new Set(), ingCount:0,
       ventas:{}, ventaTotal:0, encCount:0,
       satisf:[], calidad:[], ambiente:[], precio:[],
-      lastDate:null, encPdvs:new Set()
+      lastDate:null
     };
     return P[k];
   }
 
+  // Ingreso
   for (const row of raw.ingreso) {
     if (!inRange(row, f)) continue;
     if (f.grp && row.grupo !== f.grp) continue;
     if (f.per && String(row.cedula) !== f.per) continue;
     const p = get(row.cedula);
-    p.nombre    = p.nombre    || row.nombre    || '';
-    p.telefono  = p.telefono  || row.telefono  || '';
-    p.ciudad    = p.ciudad    || row.ciudad    || '';
-    p.grupo     = p.grupo     || row.grupo     || '';
-    p.foto      = row.foto || p.foto;
-    const d = parseDate(row.Fecha);
-    if (d) {
-      p.dias.add(dateStr(d));
-      if (!p.lastDate || d > p.lastDate) p.lastDate = d;
-    }
+    p.nombre   = p.nombre   || row.nombre   || '';
+    p.telefono = p.telefono || row.telefono || '';
+    p.ciudad   = p.ciudad   || row.ciudad   || '';
+    p.grupo    = p.grupo    || row.grupo    || '';
+    if (row.foto) p.foto = row.foto;
+    const d = parseDate(row.fecha);
+    if (d) { p.dias.add(dateStr(d)); if (!p.lastDate || d > p.lastDate) p.lastDate = d; }
     if (row.pdv) p.pdvs.add(row.pdv);
     p.ingCount++;
   }
 
+  // Salida
   for (const row of raw.salida) {
     if (!inRange(row, f)) continue;
     if (f.grp && row.grupo !== f.grp) continue;
@@ -397,23 +384,12 @@ function buildPersons(f) {
     p.telefono = p.telefono || row.telefono || '';
     p.ciudad   = p.ciudad   || row.ciudad   || '';
     p.grupo    = p.grupo    || row.grupo    || '';
-    p.salCount++;
-    const d = parseDate(row.Fecha);
+    const d = parseDate(row.fecha);
     if (d && (!p.lastDate || d > p.lastDate)) p.lastDate = d;
   }
 
-  const PROD_COLS_V = [
-    'Sashimi de atún corte grueso X150g',
-    'Cubitos de Atún aleta amarilla x200g',
-    'Filetes de atún con costra de ajonjolí x2 piezas',
-    'Hamburguesas de atún aleta amarilla X1KG - 10 un...',
-    'FAJITAS DE ATUN DOLORES 12/350 G',
-    'CARNITAS DE ATUN DOLORES 12/350 G',
-    'PALOMITAS DE ATUN CON PIMIENTO Y LIMON x 270 g',
-    'LANGOSTINOS A LAS FINAS HIERBAS X 454 GR',
-  ];
-  const PROD_SHORT = ['Sashimi','Cubitos','Filetes','Hamburgue.','Fajitas','Carnitas','Palomitas','Langostinos'];
-
+  // Ventas — detectar columnas de producto dinámicamente
+  const prodCols = getProdCols(raw.ventas);
   for (const row of raw.ventas) {
     if (!inRange(row, f)) continue;
     if (f.grp && row.grupo !== f.grp) continue;
@@ -424,15 +400,15 @@ function buildPersons(f) {
     p.ciudad   = p.ciudad   || row.ciudad   || '';
     p.grupo    = p.grupo    || row.grupo    || '';
     if (row.pdv) p.pdvs.add(row.pdv);
-    const d = parseDate(row.Fecha);
+    const d = parseDate(row.fecha);
     if (d && (!p.lastDate || d > p.lastDate)) p.lastDate = d;
-    PROD_COLS_V.forEach((col,i)=>{
+    for (const col of prodCols) {
       const v = parseFloat(row[col]) || 0;
-      p.ventas[PROD_SHORT[i]] = (p.ventas[PROD_SHORT[i]]||0) + v;
-      p.ventaTotal += v;
-    });
+      if (v) { p.ventas[col] = (p.ventas[col]||0) + v; p.ventaTotal += v; }
+    }
   }
 
+  // Encuesta
   for (const row of raw.encuesta) {
     if (!inRange(row, f)) continue;
     if (f.grp && row.grupo !== f.grp) continue;
@@ -442,26 +418,23 @@ function buildPersons(f) {
     p.telefono = p.telefono || row.telefono || '';
     p.ciudad   = p.ciudad   || row.ciudad   || '';
     p.grupo    = p.grupo    || row.grupo    || '';
-    if (row.pdv) { p.pdvs.add(row.pdv); p.encPdvs.add(row.pdv); }
+    if (row.pdv) p.pdvs.add(row.pdv);
     p.encCount++;
-    const d = parseDate(row.Fecha);
+    const d = parseDate(row.fecha);
     if (d && (!p.lastDate || d > p.lastDate)) p.lastDate = d;
-    const sg = parseFloat(row['satisfaccion_general'])||0;
-    if (sg) p.satisf.push(sg);
-    const ca = parseFloat(row['calidad'])||0; if(ca) p.calidad.push(ca);
-    const am = parseFloat(row['ambiente'])||0; if(am) p.ambiente.push(am);
-    const pr = parseFloat(row['precio'])||0;   if(pr) p.precio.push(pr);
+    const push = (arr, v) => { const n = parseFloat(v); if (n > 0) arr.push(n); };
+    push(p.satisf, row.satisfaccion_general);
+    push(p.calidad, row.calidad);
+    push(p.ambiente, row.ambiente);
+    push(p.precio, row.precio);
   }
 
   return Object.values(P).filter(p => p.nombre).sort((a,b)=>a.nombre.localeCompare(b.nombre));
 }
 
-function avg(arr) {
-  if (!arr.length) return null;
-  return arr.reduce((s,v)=>s+v,0)/arr.length;
-}
+function avg(arr) { return arr.length ? arr.reduce((s,v)=>s+v,0)/arr.length : null; }
 
-// ── Render ─────────────────────────────────────────────────────────────────
+// ── Render
 function applyFilters() {
   const f = getFilters();
   const list = buildPersons(f);
@@ -469,177 +442,105 @@ function applyFilters() {
 }
 
 let isListView = false;
+function setView(v) { isListView=v; applyFilters(); }
 
 function render(list) {
   if (!list.length) {
-    document.getElementById('app').innerHTML = `
-      <div class="empty"><div style="font-size:2rem">🔍</div><p>No hay registros en el período seleccionado.</p></div>`;
+    document.getElementById('app').innerHTML = `<div class="empty"><div style="font-size:2rem">🔍</div><p>No hay registros en el período seleccionado.</p></div>`;
     return;
   }
+  const totDias   = list.reduce((s,p)=>s+p.dias.size,0);
+  const totVentas = list.reduce((s,p)=>s+p.ventaTotal,0);
+  const totEnc    = list.reduce((s,p)=>s+p.encCount,0);
+  const satisfAll = list.flatMap(p=>p.satisf);
+  const satisfProm= avg(satisfAll);
 
-  const totDias      = list.reduce((s,p)=>s+p.dias.size,0);
-  const totVentas    = list.reduce((s,p)=>s+p.ventaTotal,0);
-  const totEncuestas = list.reduce((s,p)=>s+p.encCount,0);
-  const totPdvs      = new Set(list.flatMap(p=>[...p.pdvs])).size;
-  const satisfAll    = list.flatMap(p=>p.satisf);
-  const satisfProm   = avg(satisfAll);
+  const summary = `<div class="summary">
+    <div class="sum-card c0"><div class="sum-label">Personas</div><div class="sum-val c0">${list.length}</div><div class="sum-sub">mercaderistas activas</div></div>
+    <div class="sum-card c1"><div class="sum-label">Días Trabajados</div><div class="sum-val c1">${totDias}</div><div class="sum-sub">registros de ingreso</div></div>
+    <div class="sum-card c2"><div class="sum-label">Total Ventas</div><div class="sum-val c2">${totVentas.toLocaleString()}</div><div class="sum-sub">unidades vendidas</div></div>
+    <div class="sum-card c3"><div class="sum-label">Encuestas</div><div class="sum-val c3">${totEnc.toLocaleString()}</div><div class="sum-sub">registros de encuesta</div></div>
+    <div class="sum-card c4"><div class="sum-label">Satisfacción</div><div class="sum-val c4">${satisfProm ? satisfProm.toFixed(1)+'/5' : '—'}</div><div class="sum-sub">promedio general</div></div>
+  </div>`;
 
-  const summary = `
-    <div class="summary">
-      <div class="sum-card c0">
-        <div class="sum-label">Personas</div>
-        <div class="sum-val c0">${list.length}</div>
-        <div class="sum-sub">mercaderistas activas</div>
-      </div>
-      <div class="sum-card c1">
-        <div class="sum-label">Días Trabajados</div>
-        <div class="sum-val c1">${totDias}</div>
-        <div class="sum-sub">registros de ingreso</div>
-      </div>
-      <div class="sum-card c2">
-        <div class="sum-label">Total Ventas</div>
-        <div class="sum-val c2">${totVentas.toLocaleString()}</div>
-        <div class="sum-sub">unidades vendidas</div>
-      </div>
-      <div class="sum-card c3">
-        <div class="sum-label">Encuestas</div>
-        <div class="sum-val c3">${totEncuestas.toLocaleString()}</div>
-        <div class="sum-sub">registros de encuesta</div>
-      </div>
-      <div class="sum-card c4">
-        <div class="sum-label">Satisfacción</div>
-        <div class="sum-val c4">${satisfProm ? satisfProm.toFixed(1)+'/5' : '—'}</div>
-        <div class="sum-sub">promedio general</div>
-      </div>
-    </div>`;
-
-  const cards = list.map(p => personCard(p)).join('');
-  const grid = `
-    <div class="section-title">
-      <h2>Reporte por persona <span>(${list.length} activas)</span></h2>
-      <div class="view-toggle">
-        <button class="view-btn ${isListView?'':'active'}" onclick="setView(false)">▦</button>
-        <button class="view-btn ${isListView?'active':''}" onclick="setView(true)">☰</button>
-      </div>
+  const grid = `<div class="section-title">
+    <h2>Reporte por persona <span>(${list.length} activas)</span></h2>
+    <div class="view-toggle">
+      <button class="view-btn ${isListView?'':'active'}" onclick="setView(false)">▦</button>
+      <button class="view-btn ${isListView?'active':''}" onclick="setView(true)">☰</button>
     </div>
-    <div class="grid${isListView?' list-view':''}" id="cards-grid">${cards}</div>`;
+  </div>
+  <div class="grid${isListView?' list-view':''}">${list.map(personCard).join('')}</div>`;
 
   document.getElementById('app').innerHTML = summary + grid;
 }
 
-function setView(list) {
-  isListView = list;
-  applyFilters();
-}
-
 function personCard(p) {
-  const initials = p.nombre.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
-  const photoEl = p.foto
-    ? `<img class="avatar" src="${escHtml(p.foto)}" alt="${escHtml(initials)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-    : '';
-  const placeholderStyle = p.foto ? 'display:none' : '';
-  const isActive = p.lastDate && (new Date() - p.lastDate) < 48*3600*1000;
-
-  const satisfA = avg(p.satisf);
-  const calidA  = avg(p.calidad);
-  const precioA = avg(p.precio);
+  const initials = p.nombre.split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase();
+  const photoEl  = p.foto ? `<img class="avatar" src="${esc(p.foto)}" alt="${esc(initials)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : '';
+  const phStyle  = p.foto ? 'display:none' : '';
+  const isActive = p.lastDate && (new Date()-p.lastDate) < 48*3600*1000;
+  const satisfA  = avg(p.satisf), calidA = avg(p.calidad), precioA = avg(p.precio);
 
   const ventaEntries = Object.entries(p.ventas).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
-  const detailProds = ventaEntries.length ? `
-    <div class="detail-section">
-      <h4>Ventas por producto</h4>
-      <div class="prod-list">${ventaEntries.map(([k,v])=>`
-        <div class="prod-row"><span>${k}</span><span>${v.toLocaleString()}</span></div>`).join('')}
-      </div>
-    </div>` : '';
+  const detProds = ventaEntries.length ? `<div class="detail-section"><h4>Ventas por producto</h4><div class="prod-list">${
+    ventaEntries.map(([k,v])=>`<div class="prod-row"><span>${esc(shortName(k))}</span><span>${v.toLocaleString()}</span></div>`).join('')
+  }</div></div>` : '';
 
-  const detailScores = (satisfA||calidA||precioA) ? `
-    <div class="detail-section">
-      <h4>Satisfacción consumidores</h4>
-      <div class="score-row">
-        ${satisfA ? `<div class="score-chip"><div class="sv">${satisfA.toFixed(1)}</div><div class="sl">General</div></div>` : ''}
-        ${calidA  ? `<div class="score-chip"><div class="sv">${calidA.toFixed(1)}</div><div class="sl">Calidad</div></div>` : ''}
-        ${precioA ? `<div class="score-chip"><div class="sv">${precioA.toFixed(1)}</div><div class="sl">Precio</div></div>` : ''}
-        ${avg(p.ambiente) ? `<div class="score-chip"><div class="sv">${avg(p.ambiente).toFixed(1)}</div><div class="sl">Ambiente</div></div>` : ''}
-      </div>
-    </div>` : '';
+  const detScores = (satisfA||calidA||precioA) ? `<div class="detail-section"><h4>Satisfacción consumidores</h4><div class="score-row">
+    ${satisfA ? `<div class="score-chip"><div class="sv">${satisfA.toFixed(1)}</div><div class="sl">General</div></div>` : ''}
+    ${calidA  ? `<div class="score-chip"><div class="sv">${calidA.toFixed(1)}</div><div class="sl">Calidad</div></div>` : ''}
+    ${precioA ? `<div class="score-chip"><div class="sv">${precioA.toFixed(1)}</div><div class="sl">Precio</div></div>` : ''}
+    ${avg(p.ambiente) ? `<div class="score-chip"><div class="sv">${avg(p.ambiente).toFixed(1)}</div><div class="sl">Ambiente</div></div>` : ''}
+  </div></div>` : '';
 
   const pdvArr = [...p.pdvs];
-  const detailPdvs = pdvArr.length ? `
-    <div class="detail-section">
-      <h4>PDV visitados (${pdvArr.length})</h4>
-      <div class="pdv-pills">${pdvArr.map(d=>`<span class="pdv-pill">${escHtml(d)}</span>`).join('')}</div>
-    </div>` : '';
+  const detPdvs = pdvArr.length ? `<div class="detail-section"><h4>PDV visitados (${pdvArr.length})</h4><div class="pdv-pills">${
+    pdvArr.map(d=>`<span class="pdv-pill">${esc(d)}</span>`).join('')
+  }</div></div>` : '';
 
-  const id = 'card_' + p.cedula;
-  return `
-  <div class="pcard" id="${id}">
-    <div class="pcard-header" onclick="toggleCard('${id}')">
+  const id = 'card_'+p.cedula;
+  return `<div class="pcard" id="${id}">
+    <div class="pcard-header" onclick="toggle('${id}')">
       ${photoEl}
-      <div class="avatar-placeholder" style="${placeholderStyle}">${initials}</div>
+      <div class="avatar-placeholder" style="${phStyle}">${initials}</div>
       <div class="pinfo">
-        <div class="pname">${escHtml(p.nombre)}</div>
-        <div class="pbadge">📍 ${escHtml(p.grupo||'—')}</div>
-        <div class="pmeta">📞 ${escHtml(p.telefono||'—')} · ${escHtml(p.ciudad||'—')}</div>
+        <div class="pname">${esc(p.nombre)}</div>
+        <div class="pbadge">📍 ${esc(p.grupo||'—')}</div>
+        <div class="pmeta">📞 ${esc(p.telefono||'—')} · ${esc(p.ciudad||'—')}</div>
       </div>
-      <div class="status-dot ${isActive?'active':'inactive'}" title="${isActive?'Activa recientemente':'Sin actividad reciente'}"></div>
+      <div class="status-dot ${isActive?'active':'inactive'}"></div>
     </div>
     <div class="pcard-body">
-      <div class="stat">
-        <div class="stat-val">${p.dias.size}</div>
-        <div class="stat-lbl">Días</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val grn">${p.ventaTotal.toLocaleString()}</div>
-        <div class="stat-lbl">Ventas</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val yel">${p.encCount}</div>
-        <div class="stat-lbl">Encuestas</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val pur">${p.pdvs.size}</div>
-        <div class="stat-lbl">PDVs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val grn">${satisfA ? satisfA.toFixed(1) : '—'}</div>
-        <div class="stat-lbl">Satisf.</div>
-      </div>
+      <div class="stat"><div class="stat-val">${p.dias.size}</div><div class="stat-lbl">Días</div></div>
+      <div class="stat"><div class="stat-val grn">${p.ventaTotal.toLocaleString()}</div><div class="stat-lbl">Ventas</div></div>
+      <div class="stat"><div class="stat-val yel">${p.encCount}</div><div class="stat-lbl">Encuestas</div></div>
+      <div class="stat"><div class="stat-val pur">${p.pdvs.size}</div><div class="stat-lbl">PDVs</div></div>
+      <div class="stat"><div class="stat-val">${p.ingCount}</div><div class="stat-lbl">Ingresos</div></div>
+      <div class="stat"><div class="stat-val grn">${satisfA ? satisfA.toFixed(1) : '—'}</div><div class="stat-lbl">Satisf.</div></div>
     </div>
     <div class="pcard-footer">
       <div class="last-act">Último: <strong>${fmtDateTime(p.lastDate)}</strong></div>
-      <div class="pdv-pill" style="max-width:160px;overflow:hidden;text-overflow:ellipsis">${escHtml(pdvArr[0]||'—')}</div>
+      <span class="pdv-pill" style="max-width:150px;overflow:hidden;text-overflow:ellipsis">${esc(pdvArr[0]||'—')}</span>
     </div>
-    <div class="pcard-detail" id="det_${p.cedula}">
-      ${detailProds}
-      ${detailScores}
-      ${detailPdvs}
-    </div>
+    <div class="pcard-detail" id="det_${p.cedula}">${detProds}${detScores}${detPdvs}</div>
   </div>`;
 }
 
-function toggleCard(id) {
-  const card = document.getElementById(id);
-  if (!card) return;
-  const det = card.querySelector('.pcard-detail');
+function toggle(id) {
+  const det = document.querySelector('#'+id+' .pcard-detail');
   if (det) det.classList.toggle('open');
 }
-
-function escHtml(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function showToast(msg, dur=2500) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'), dur);
 }
 
-// ── Init ───────────────────────────────────────────────────────────────────
 document.getElementById('f-to').value = new Date().toISOString().slice(0,10);
 loadAll();
-setInterval(loadAll, 5*60*1000); // auto-refresh every 5 min
+setInterval(loadAll, 5*60*1000);
 </script>
 </body>
 </html>
